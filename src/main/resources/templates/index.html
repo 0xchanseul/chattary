@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: head"></head>
+
 <body>
-<h1>Hello World:)))11weer331)</h1>
+
+<!--=============== Start Header Section  ===============-->
+<div th:replace="fragments/header :: header"></div>
+<!--=============== End Header Section  ===============-->
+<!--==================== Start Hero Section =====================-->
+<section class="speedyui speedyui-hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 my-3">
+                <div class="hero-content">
+                    <h1 class="display-4 mb-4">AI English study model</h1>
+                    <p class="text-muted fw-light mb-4 mb-xl-5">
+                        이곳에는 무엇을 써야할지 고민입니다...<br>
+                        blah blah ...<br>
+                        i dont wanna say anything...
+                    </p>
+                    <a href="#" class="btn btn-md shadow px-4 py-3 primary-btn rounded-pill border-0"
+                        style="background-color: #3D7CFF;">Start Your Free Trial</a>
+                </div><!--.hero-content-->
+            </div><!--.col-grid-->
+            <div class="col-lg-6 my-3 text-center">
+                <img th:src="@{/img/main_img.png}" class="img-fluid" alt="" />
+            </div><!--.col-grid-->
+        </div><!--.row-->
+    </div><!--.container-->
+</section>
+<!--==================== End Hero Section =====================-->
+
+<!--<a href="https://speedyui.com/" target="_blank" style="background-color:red;text-decoration: none;color: #fff;padding: 1rem;width: 120px;height: 120px;display: flex;border-radius: 50rem;align-items: center;justify-content: center;text-align: center;position: fixed;right: 48%;bottom: 5%;background-image: linear-gradient(to right bottom, #6a36fb, #913add);font-size: 14px;box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.05);">view more on Speedyui</a>-->
+
 </body>
 </html>

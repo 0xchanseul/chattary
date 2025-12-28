@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <header class="speedyui speedyui-header">
+        <nav class="navbar navbar-expand-lg py-3 py-lg-0">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img th:src="@{/img/Chattary_logo_L.png}" alt="" style="max-width: 80%; height: auto;">
+                </a><!--brand identity-->
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button><!--.navbar-toggler-->
+                <div class="navbar-collapse collapse py-3 py-lg-0 bg-white px-4 px-lg-0" id="navbarNavDropdown">
+                    <ul class="navbar-nav align-items-start align-items-lg-center ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item py-2 py-lg-4">
+                            <a class="nav-link px-lg-4 py-0" href="#">Home</a>
+                        </li><!--.nav-item-->
+                        <li class="nav-item py-2 py-lg-4">
+                            <a class="nav-link px-lg-4 py-0" href="#">About</a>
+                        </li><!--.nav-item-->
+                        <li class="nav-item py-2 py-lg-4">
+                            <a class="nav-link px-lg-4 py-0" href="#">Services</a>
+                        </li><!--.nav-item-->
+                        <li class="nav-item dropdown px-lg-4 py-0">
+                            <a class="nav-link d-flex align-items-center justify-content-lg-center gap-2 dropdown-toggle px-0 py-2 py-lg-4" href="#" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                Pages
+                                <span class="mb-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                        <path stroke="currentColor" stroke-width="1.2" fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                    </svg>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu border-0 start-0">
+                                <li><a class="dropdown-item py-2" href="#">Portfolio</a></li>
+                                <li><a class="dropdown-item py-2" href="#">Pricing</a></li>
+                                <li><a class="dropdown-item py-2" href="#">FAQ's</a></li>
+                            </ul><!--.dropdown-menu-->
+                        </li><!--.dropdown-->
+                        <li class="nav-item py-2 py-lg-4">
+                            <a class="nav-link px-lg-4 py-0" href="#">Blog</a>
+                        </li><!--.nav-item-->
+                        <li class="nav-item py-2 py-lg-4">
+                            <a class="nav-link px-lg-4 py-0" href="#">Contact</a>
+                        </li><!--.nav-item-->
+                        <li class="nav-item">
+                            <button th:onclick="|location.href='@{/signInPage}'|" class="btn primary-btn text-white border-0 px-3 py-2 mt-2 mt-lg-0 rounded-pill">
+                                Sign in
+                            </button>
+                        </li><!--.nav-item-->
+                    </ul><!--.navbar-nav-->
+                </div><!--.navbar-collapse-->
+                <div class="lang_set">
+                    <a class="kr" aria-current="page" href="?lang=ko">
+                        <img th:src="@{/img/kr.png}" class="img-fluid" alt="" />
+                    </a>
+                    <a class="en" aria-current="page" href="?lang=en">
+                        <img th:src="@{/img/en.png}" class="img-fluid" alt="" />
+                    </a>
+                </div>
+            </div><!--.container-->
+
+        </nav><!--nav-->
+    </header>
+</body>
+</html>
