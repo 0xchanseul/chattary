@@ -11,15 +11,15 @@ public class AuthRequest {
 
     @NotBlank
     @Email
-    private String email;
+    private String userMail;
 
     @NotBlank @Size(min = 1, max = 30)
-    private String nickname;
+    private String userNm;
 
     @NotBlank @Size(min = 4, max = 50)
     private String password;
 
     @NotBlank @Size(min = 4, max = 50)
-    private String ID;
+    private String userId;
 
 }

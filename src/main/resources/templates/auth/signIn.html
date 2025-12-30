@@ -22,44 +22,46 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-10 col-xl-8">
-                <div class="row gy-5 justify-content-center">
-                    <div class="col-12 col-lg-5">
-                        <form action="#!">
-                            <div class="row gy-3 overflow-hidden">
-                                <div class="col-12">
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control border-0 border-bottom rounded-0" name="firstName" id="firstName" placeholder="First Name" required>
-                                        <label for="firstName" class="form-label" th:text="#{ID}"></label>
+        <form th:action="@{/signIn}" th:object="${signinRequest}" id="signinForm" method="post">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 col-xl-8">
+                    <div class="row gy-5 justify-content-center">
+                        <div class="col-12 col-lg-5">
+                            <form action="#!">
+                                <div class="row gy-3 overflow-hidden">
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control border-0 border-bottom rounded-0" name="userId" id="userId" placeholder="ID" required>
+                                            <label for="userId" class="form-label" th:text="#{ID}"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="password" class="form-control border-0 border-bottom rounded-0" name="password" id="password" placeholder="PW" required>
+                                            <label for="password" class="form-label" th:text="#{password}"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="d-grid">
+                                            <button class="btn btn-lg btn-dark rounded-0 fs-6" type="submit" th:text="#{signIn}"></button>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <p class="form-check-label text-secondary">
+                                                <span th:text="#{askNoAccount}"></span>
+                                                <a href="signUpPage" class="link-primary text-decoration-none" th:text="#{signUpNow}">
+                                                </a>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-floating mb-3">
-                                        <input type="email" class="form-control border-0 border-bottom rounded-0" name="email" id="email" placeholder="name@example.com" required>
-                                        <label for="email" class="form-label" th:text="#{password}"></label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="d-grid">
-                                        <button class="btn btn-lg btn-dark rounded-0 fs-6" type="submit" th:text="#{signIn}"></button>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-check">
-                                        <p class="form-check-label text-secondary">
-                                            <span th:text="#{askNoAccount}"></span>
-                                            <a href="signUpPage" class="link-primary text-decoration-none" th:text="#{signUpNow}">
-                                            </a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </section>
 <!--==================== End Hero Section =====================-->
@@ -67,4 +69,18 @@
 <!--<a href="https://speedyui.com/" target="_blank" style="background-color:red;text-decoration: none;color: #fff;padding: 1rem;width: 120px;height: 120px;display: flex;border-radius: 50rem;align-items: center;justify-content: center;text-align: center;position: fixed;right: 48%;bottom: 5%;background-image: linear-gradient(to right bottom, #6a36fb, #913add);font-size: 14px;box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.05);">view more on Speedyui</a>-->
 
 </body>
+
+<script th:inline="javascript">
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const successMessage = [[${successMessage}]];
+
+        if (successMessage) {
+          alert(successMessage);
+        }
+    });
+
+
+</script>
+
 </html>

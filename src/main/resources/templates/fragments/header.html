@@ -14,43 +14,59 @@
                     <span class="navbar-toggler-icon"></span>
                 </button><!--.navbar-toggler-->
                 <div class="navbar-collapse collapse py-3 py-lg-0 bg-white px-4 px-lg-0" id="navbarNavDropdown">
-                    <ul class="navbar-nav align-items-start align-items-lg-center ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item py-2 py-lg-4">
-                            <a class="nav-link px-lg-4 py-0" href="#">Home</a>
-                        </li><!--.nav-item-->
-                        <li class="nav-item py-2 py-lg-4">
-                            <a class="nav-link px-lg-4 py-0" href="#">About</a>
-                        </li><!--.nav-item-->
-                        <li class="nav-item py-2 py-lg-4">
-                            <a class="nav-link px-lg-4 py-0" href="#">Services</a>
-                        </li><!--.nav-item-->
-                        <li class="nav-item dropdown px-lg-4 py-0">
-                            <a class="nav-link d-flex align-items-center justify-content-lg-center gap-2 dropdown-toggle px-0 py-2 py-lg-4" href="#" role="button"
-                               data-bs-toggle="dropdown" aria-expanded="false">
-                                Pages
-                                <span class="mb-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                                        <path stroke="currentColor" stroke-width="1.2" fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                                    </svg>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu border-0 start-0">
-                                <li><a class="dropdown-item py-2" href="#">Portfolio</a></li>
-                                <li><a class="dropdown-item py-2" href="#">Pricing</a></li>
-                                <li><a class="dropdown-item py-2" href="#">FAQ's</a></li>
-                            </ul><!--.dropdown-menu-->
-                        </li><!--.dropdown-->
-                        <li class="nav-item py-2 py-lg-4">
-                            <a class="nav-link px-lg-4 py-0" href="#">Blog</a>
-                        </li><!--.nav-item-->
-                        <li class="nav-item py-2 py-lg-4">
-                            <a class="nav-link px-lg-4 py-0" href="#">Contact</a>
-                        </li><!--.nav-item-->
-                        <li class="nav-item">
-                            <button th:onclick="|location.href='@{/signInPage}'|" class="btn primary-btn text-white border-0 px-3 py-2 mt-2 mt-lg-0 rounded-pill">
-                                Sign in
-                            </button>
-                        </li><!--.nav-item-->
+                    <ul class="navbar-nav align-items-start align-items-lg-center mb-2 mb-lg-0" style="margin-left: 20px;">
+                            <!--<li class="nav-item py-2 py-lg-4">
+                                <a class="nav-link px-lg-4 py-0" href="#">Home</a>
+                            </li>&lt;!&ndash;.nav-item&ndash;&gt;
+                            <li class="nav-item py-2 py-lg-4">
+                                <a class="nav-link px-lg-4 py-0" href="#">About</a>
+                            </li>&lt;!&ndash;.nav-item&ndash;&gt;
+                            <li class="nav-item py-2 py-lg-4">
+                                <a class="nav-link px-lg-4 py-0" href="#">Services</a>
+                            </li>&lt;!&ndash;.nav-item&ndash;&gt;-->
+                            <!--<li class="nav-item dropdown px-lg-4 py-0">
+                                <a class="nav-link d-flex align-items-center justify-content-lg-center gap-2 dropdown-toggle px-0 py-2 py-lg-4" href="#" role="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                    Pages
+                                    <span class="mb-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                            <path stroke="currentColor" stroke-width="1.2" fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu border-0 start-0">
+                                    <li><a class="dropdown-item py-2" href="#">Portfolio</a></li>
+                                    <li><a class="dropdown-item py-2" href="#">Pricing</a></li>
+                                    <li><a class="dropdown-item py-2" href="#">FAQ's</a></li>
+                                </ul>&lt;!&ndash;.dropdown-menu&ndash;&gt;
+                            </li>&lt;!&ndash;.dropdown&ndash;&gt;-->
+                            <li class="nav-item py-2 py-lg-4">
+                                <a class="nav-link px-lg-4 py-0" href="javascript:alert('This service is currently under development.');" th:text="#{header.chating}"></a>
+                            </li><!--.nav-item-->
+                            <li class="nav-item py-2 py-lg-4">
+                                <a class="nav-link px-lg-4 py-0" href="javascript:alert('This service is currently under development.');" th:text="#{header.wordgame}"></a>
+                            </li><!--.nav-item-->
+                        <div style="text-align: left; margin-left: 350px;">
+                            <!--비로그인상태-->
+                            <li class="nav-item" th:unless="${nickname}">
+                                <button th:onclick="|location.href='@{/signInPage}'|" class="btn primary-btn text-white border-0 px-3 py-2 mt-2 mt-lg-0 rounded-pill">
+                                    Sign in
+                                </button>
+                            </li><!--.nav-item-->
+                            <!--비로그인상태-->
+                            <!--로그인상태-->
+                            <li class="nav-item py-2 py-lg-4" th:if="${nickname}" style="box-sizing:none;">
+                                <p class="">
+                                    <span th:text="#{header.greeting}"></span><span th:text="${nickname}"></span> :)
+                                </p>
+                            </li><!--.nav-item-->
+                            <li class="nav-item" th:if="${nickname}">
+                                <button th:onclick="|location.href='@{/logout}'|" class="btn primary-btn text-white border-0 px-3 py-2 mt-2 mt-lg-0 rounded-pill">
+                                    Log out
+                                </button>
+                            </li><!--.nav-item-->
+                            <!--로그인상태-->
+                        </div>
                     </ul><!--.navbar-nav-->
                 </div><!--.navbar-collapse-->
                 <div class="lang_set">
