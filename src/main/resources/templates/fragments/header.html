@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
 <body>
-    <header class="speedyui speedyui-header">
+    <header class="speedyui speedyui-header" th:fragment="appHeader">
         <nav class="navbar navbar-expand-lg py-3 py-lg-0">
             <div class="container">
                 <a class="navbar-brand" href="/">
@@ -41,26 +42,26 @@
                                 </ul>&lt;!&ndash;.dropdown-menu&ndash;&gt;
                             </li>&lt;!&ndash;.dropdown&ndash;&gt;-->
                             <li class="nav-item py-2 py-lg-4">
-                                <a class="nav-link px-lg-4 py-0" href="javascript:alert('This service is currently under development.');" th:text="#{header.chating}"></a>
+                                <a class="nav-link px-lg-4 py-0" href="chatMainPage" th:text="#{header.chating}"></a>
                             </li><!--.nav-item-->
                             <li class="nav-item py-2 py-lg-4">
                                 <a class="nav-link px-lg-4 py-0" href="javascript:alert('This service is currently under development.');" th:text="#{header.wordgame}"></a>
                             </li><!--.nav-item-->
                         <div style="text-align: left; margin-left: 350px;">
                             <!--비로그인상태-->
-                            <li class="nav-item" th:unless="${nickname}">
+                            <li class="nav-item" sec:authorize="isAnonymous()">
                                 <button th:onclick="|location.href='@{/signInPage}'|" class="btn primary-btn text-white border-0 px-3 py-2 mt-2 mt-lg-0 rounded-pill">
                                     Sign in
                                 </button>
                             </li><!--.nav-item-->
                             <!--비로그인상태-->
                             <!--로그인상태-->
-                            <li class="nav-item py-2 py-lg-4" th:if="${nickname}" style="box-sizing:none;">
+                            <li class="nav-item py-2 py-lg-4" sec:authorize="isAuthenticated()" style="box-sizing:none;">
                                 <p class="">
-                                    <span th:text="#{header.greeting}"></span><span th:text="${nickname}"></span> :)
+                                    <span th:text="#{header.greeting}"></span><span sec:authentication="principal.nickname"></span> :)
                                 </p>
                             </li><!--.nav-item-->
-                            <li class="nav-item" th:if="${nickname}">
+                            <li class="nav-item" sec:authorize="isAuthenticated()">
                                 <button th:onclick="|location.href='@{/logout}'|" class="btn primary-btn text-white border-0 px-3 py-2 mt-2 mt-lg-0 rounded-pill">
                                     Log out
                                 </button>

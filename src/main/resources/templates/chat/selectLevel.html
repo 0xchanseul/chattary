@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: head"></head>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/bootstrap_cards.css}">
+
+<body>
+
+<!--=============== Start Header Section  ===============-->
+<div th:replace="~{fragments/header :: appHeader}"></div>
+<!--=============== End Header Section  ===============-->
+<!--==================== Start Hero Section =====================-->
+<section class="speedyui speedyui-hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-4 col-xl-3">
+                <a href="#none" onclick="selectLevel('1'); return false;" class="card-link">
+                    <div class="card bg-c-green order-card">
+                        <div class="card-block">
+                            <h6 class="m-b-20">Beginner</h6>
+                            <p class="m-b-0" style="font-size: 15px;">- 인사, 자기소개, 간단한 질문이 가능해요</p>
+                            <p class="m-b-0" style="font-size: 15px;">- 틀려도 괜찮고, 쉬운 표현으로 대화하고 싶어요</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-xl-3">
+                <a href="#none" onclick="selectLevel('2'); return false;" class="card-link">
+                    <div class="card bg-c-blue order-card">
+                        <div class="card-block">
+                            <h6 class="m-b-20">Intermediate</h6>
+                            <p class="m-b-0" style="font-size: 15px;">- 일상적인 대화는 이어갈 수 있어요</p>
+                            <p class="m-b-0" style="font-size: 15px;">- 자연스러운 표현을 배우고 싶어요</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-xl-3">
+                <a href="#none" onclick="selectLevel('3'); return false;" class="card-link">
+                    <div class="card bg-c-pink order-card">
+                        <div class="card-block">
+                            <h6 class="m-b-20">Advanced</h6>
+                            <p class="m-b-0" style="font-size: 15px;">- 자유로운 대화가 가능해요</p>
+                            <p class="m-b-0" style="font-size: 15px;">- 원어민처럼 말하고 싶어요</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div><!--.row-->
+    </div><!--.container-->
+</section>
+<!--==================== End Hero Section =====================-->
+
+<!--<a href="https://speedyui.com/" target="_blank" style="background-color:red;text-decoration: none;color: #fff;padding: 1rem;width: 120px;height: 120px;display: flex;border-radius: 50rem;align-items: center;justify-content: center;text-align: center;position: fixed;right: 48%;bottom: 5%;background-image: linear-gradient(to right bottom, #6a36fb, #913add);font-size: 14px;box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.05);">view more on Speedyui</a>-->
+
+</body>
+
+<script th:inline="javascript">
+
+    function selectLevel(level) {
+
+        var confrimMsg = '';
+        if(level == 1){
+            confrimMsg = [[${level.Beginner.ComfrimMsg}]];
+        } else if(level == 2){
+            confrimMsg = [[${level.Intermediate.ComfrimMsg}]];
+        } else if(level == 3){
+            confrimMsg = [[${level.Advanced.ComfrimMsg}]];
+        }
+
+        if(confirm(confrimMsg)){
+            location.href = '/user/selectLevel?level=' + level;
+        }
+
+    }
+</script>
+
+</html>

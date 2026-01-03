@@ -73,6 +73,14 @@
 <script th:inline="javascript">
 
     document.addEventListener("DOMContentLoaded", function () {
+
+        const loginFail = [[${loginFail} ?: false]];
+        const errorMessage = '[[#{signin.fail}]]';
+
+        if (loginFail) {
+            alert(errorMessage);
+        }
+
         const successMessage = [[${successMessage}]];
 
         if (successMessage) {

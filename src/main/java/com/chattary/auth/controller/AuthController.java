@@ -10,11 +10,8 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import com.chattary.auth.dto.AuthRequest;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
@@ -28,7 +25,13 @@ public class AuthController {
     private final MessageSource messageSource;
 
     @GetMapping("/signInPage")
-    public String signInPage() {
+    public String signInPage(@RequestParam(value = "error", required = false) String error,
+                             Model model) {
+
+        if (error != null) {
+
+            model.addAttribute("loginFail", true);
+        }
 
         return "auth/signIn";
     }
